@@ -15,6 +15,8 @@ const PostForm = ({create}) => {
         setPost({title: '', body: ''})
     }
 
+
+
     return (
         <form>
             {/*Управляемый компонент*/}

@@ -31,6 +31,27 @@ function Posts() {
         setTotalPages(getPageCount(totalCount, limit));
     })
 
+    // async function fetchPosts2() {
+    //     const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    //     console.log(response.data)
+    // }
+
+
+    async function fun() {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+            const data = await response.json()
+            console.log(data);
+            return data
+            
+        } catch(e) {
+            alert(e)
+        } finally {
+            console.log('kkkk');
+        }
+    }
+    
+
     useObserver(lastElement, page < totalPages, isPostsLoading, () => {
         setPage(page + 1);
     })
@@ -55,6 +76,7 @@ function Posts() {
 
     return (
         <div className="App">
+            <button onClick={fun}>fetch</button>
             <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
                 Создать пользователя
             </MyButton>
